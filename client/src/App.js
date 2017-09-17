@@ -16,3 +16,9 @@ class App extends Component {
 }
 
 export default App;
+
+/*
+
+LoginForm has no idea about Redux, it serves just to validate data and give it back.
+
+*/

@@ -1,3 +1,19 @@
 .App a {
   color: rgb(207, 18, 91);
 }
+
+.login-form {
+  background: #777777;
+  padding: 10px;
+}
+
+.login-form input {
+  margin: 10px 0;
+  padding: 10px;
+  display: block;
+}
+
+.login-form button {
+  margin: 10px 0;
+  padding: 10px;
+}
