@@ -9,7 +9,6 @@ class LoginForm extends Component {
       email: '',
       password: ''
     },
-    loading: false,
     errors: {}
   };
 
@@ -17,14 +16,14 @@ class LoginForm extends Component {
     data: {...this.state.data, [e.target.name]: e.target.value}
   });
 
-  onSubmit = () => {
+  onSubmit = (e) => {
+    e.preventDefault();
     const errors = this.validate(this.state.data);
     this.setState({ errors });
     if(Object.keys(errors).length === 0) {
-      this.setState({ loading: true });
       this.props.submit(this.state.data)
         .catch((err) => {
-          this.setState({ errors: err.response.data.errors, loading: false })
+          this.setState({ errors: err.response.data.errors })
         });
     }
   };
@@ -41,7 +40,7 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { data, errors, loading } = this.state;
+    const { data, errors } = this.state;
 
     return (
       <form className="login-form" onSubmit={this.onSubmit}>
